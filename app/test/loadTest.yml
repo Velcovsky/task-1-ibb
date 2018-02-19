@@ -1,0 +1,22 @@
+config:
+  target: 'http://localhost:8060'
+  phases:
+    - duration: 120
+      arrivalRate: 30
+  defaults:
+    headers:
+      x-my-service-auth: '987401838271002188298567'
+scenarios:
+  - flow:
+    - get:
+        url: "/count"
+    - get:
+        url: "/track"
+    - post:
+        url: "/track"
+        json:
+          count: "50"
+    - post:
+        url: "/track"
+        json:
+          ahoj: "svete"
